@@ -1,0 +1,43 @@
+{
+  "name": "boatslist",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Show and maintain boat list",
+  "dependencies": {
+    "@material-ui/core": "^1.4.3",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-scripts": "1.1.4",
+    "@material-ui/icons": "^1.1.0",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "dotenv": "^6.0.0",
+    "epilogue": "^0.7.1",
+    "final-form": "^4.8.3",
+    "react-final-form": "^3.6.4",
+    "react-router-dom": "^4.3.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Student-Job-Search-Aoteroa/dockyard.git"
+  },
+  "author": "Leon Ren",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Student-Job-Search-Aoteroa/dockyard/issues"
+  },
+  "homepage": "https://github.com/Student-Job-Search-Aoteroa/dockyard#readme",
+  "devDependencies": {
+    "jest": "^23.4.2",
+    "jest-cli": "^23.4.2",
+    "moment": "^2.22.2",
+    "pre-commit": "^1.2.2"
+  }
+}

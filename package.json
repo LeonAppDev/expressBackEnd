@@ -1,0 +1,34 @@
+{
+  "name": "dockyard",
+  "version": "1.0.0",
+  "description": "Create a backend and frontend sample",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lintfe": "eslint frontend/src/",
+    "linebe": "eslint backend/"
+  },
+  "pre-commit": [
+    "lintfe"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Student-Job-Search-Aoteroa/dockyard.git"
+  },
+  "author": "Leon Ren",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Student-Job-Search-Aoteroa/dockyard/issues"
+  },
+  "homepage": "https://github.com/Student-Job-Search-Aoteroa/dockyard#readme",
+  "devDependencies": {
+    "eslint": "^5.3.0",
+    "eslint-config": "^0.3.0",
+    "eslint-config-google": "^0.9.1",
+    "eslint-config-react-app": "^2.1.0",
+    "eslint-plugin-flowtype": "^2.50.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "pre-commit": "^1.2.2"
+  }
+}
