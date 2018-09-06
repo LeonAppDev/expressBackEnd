@@ -2,10 +2,7 @@ import { createAction } from 'redux-actions';
 import { find } from 'lodash';
 
 import { 
-    GET_BOATS, 
-	UPDATE_BOAT, 
-	CREATE_BOAT, 
-	DELETE_BOAT, 
+    GET_BOATS,
 	ASSIGN_WORKER_TOBOAT, 
 } from './constant';
 import { remoteRequest } from './api';
