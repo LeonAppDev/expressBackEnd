@@ -1,17 +1,32 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { render } from 'react-dom';
+import { fromJS } from 'immutable';
+import { Provider } from 'react-redux';
 
-import App from './App';
+import Router from './setup/Router';
+import configStore from './setup/store';
 import registerServiceWorker from './registerServiceWorker';
 
 
-ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
-  document.getElementById('root'),
-);
+const initialState = fromJS({});
+const store = configStore(initialState);
+
+function renderApp(Component){
+
+	render(
+		<Provider store={store}>
+        <Component />
+		</Provider>,
+		document.getElementById('root')
+		);
+}
+
+
+renderApp(Router);
+
 registerServiceWorker();
 
-if (module.hot) module.hot.accept();
+if (module.hot) {
+    
+    module.hot.accept();
+}

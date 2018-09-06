@@ -13,10 +13,10 @@
     },
     {
       "id": 2,
-      "name": "Boat Two",
+      "name": "Boat Two Test",
       "type": "Motor",
       "photo": "http://via.placeholder.com/350x150/269AB3",
-      "length": 8.3,
+      "length": "10.4",
       "work_description": "Needs a new engine",
       "arrival_date": "2017-05-02T11:00:00Z",
       "delivery_date": "2017-05-07T11:00:00Z",
