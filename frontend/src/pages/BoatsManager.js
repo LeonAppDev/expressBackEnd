@@ -11,19 +11,16 @@ import {
   Paper,
   List,
   ListItem,
-  ListItemText,
   ListItemSecondaryAction,
   Grid,
   ButtonBase,
 } from '@material-ui/core';
 import { Delete as DeleteIcon, Add as AddIcon } from '@material-ui/icons';
-import moment from 'moment';
+//import moment from 'moment';
 import { compose } from 'recompose';
 import { orderBy } from 'lodash';
 import { Link } from 'react-router-dom';
-
-import BoatEditor from '../components/BoatEditor';
-import { getBoats, fetchBoats, deleteBoat } from '../reducers/boatsEndPoint/action';
+import { fetchBoats, deleteBoat } from '../reducers/boatsEndPoint/action';
 
 const styles = theme => ({
   root: {
