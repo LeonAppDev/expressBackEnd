@@ -9,7 +9,8 @@
       "work_description": "Needs a new anchor",
       "arrival_date": "2017-04-23T10:00:00Z",
       "delivery_date": "2017-04-27T10:00:00Z",
-      "status": "under repair"
+      "status": "under repair",
+      "workerSelected": 1
     },
     {
       "id": 2,
@@ -21,6 +22,33 @@
       "arrival_date": "2017-05-02T11:00:00Z",
       "delivery_date": "2017-05-07T11:00:00Z",
       "status": "under repair"
+    },
+    {
+      "name": "test",
+      "type": "sdsds",
+      "photo": "sdsdsdsd",
+      "length": "sdsds",
+      "work_description": "sdsdsd",
+      "arrival_date": "sdsdsd",
+      "delivery_date": "sdsds",
+      "status": "sdsdsd",
+      "id": 3
+    },
+    {
+      "name": "sdsds",
+      "id": 4
+    },
+    {
+      "workerSelected": 2,
+      "status": "sdsds",
+      "delivery_date": "sdsds",
+      "arrival_date": "sdssds",
+      "work_description": "sdss",
+      "length": "sdss",
+      "photo": "sdssd",
+      "type": "sdsd",
+      "name": "sdssdsdsds",
+      "id": 5
     }
   ],
   "workers": [

@@ -7,6 +7,11 @@ import {
   Modal,
   Button,
   TextField,
+  FormControl,
+  InputLabel,
+  Select,
+  Input,
+  MenuItem,
 } from '@material-ui/core';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -18,8 +23,13 @@ import PropTypes from 'prop-types';
 import { find } from 'lodash';
 
 import { saveBoat, fetchBoats } from '../reducers/boatsEndPoint/action';
+import { fetchWorkers } from '../reducers/workersEndPoint/action';
 
 const styles = theme => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
   modal: {
     display: 'flex',
     alignItems: 'center',
@@ -36,18 +46,27 @@ const styles = theme => ({
   marginTop: {
     marginTop: 2 * theme.spacing.unit,
   },
+  FormControl: {
+    margin: theme.spacing.unit,
+    minWidth: 120,
+  },
+  selectEmpty: {
+    marginTop: theme.spacing.unit * 2,
+  }
 });
 
 
 
 const mapStateToProps = (state) => ({
   boats: state.get('boats'), 
+  workers: state.get('workers'),
 });
 
 const mapDispatchToProps = (dispatch) => ({
 
   saveBoat: (boatEntity) => dispatch(saveBoat(boatEntity)),
   getBoats: () =>  dispatch(fetchBoats()),
+  getWorkers: () => dispatch(fetchWorkers()),
 });
 
 class BoatEditor extends Component{
@@ -56,17 +75,20 @@ class BoatEditor extends Component{
         boats: ImmutablePropTypes.map,
         saveBoat: PropTypes.func, 
         getBoats: PropTypes.func,
+        getWorkers: PropTypes.func,
   };
   
     static propTypes = {
         boats: Map(),
         saveBoat: () => {},
         getBoats: () => {},
+        getWorkers: () => {},
   };
 
     componentDidMount() {
 
         this.props.getBoats();
+        this.props.getWorkers();
   }
 
     constructor() {
@@ -78,11 +100,13 @@ class BoatEditor extends Component{
 
     render() {
 
-        const { classes, match, history, boats, saveBoat } = this.props;
+        const { classes, match, history, boats, saveBoat, workers } = this.props;
 
         const id = match.params.id;
         const boatsList = boats.get('boatsList');
-        const boatEntity = find(boatsList, {id:Number(id)});
+        const workersList = workers.get('workersList');
+        let boatEntity = find(boatsList, {id:Number(id)});
+        //boatEntity['workersList'] = workersList;
         const title = {
           name: 'Name',
           type: 'Type',
@@ -114,12 +138,31 @@ class BoatEditor extends Component{
                               } 
                       }
                     </Field>))
+                  
                 }
+                  <FormControl className={classes.root}>
+                        <InputLabel htmlFor="workers-simple">Worker</InputLabel>
+                        <Select
+                            value = { values['workerSelected']?values['workerSelected']:this.state.worker }
+                            onChange = {(e) => { values['workerSelected'] = e.target.value; this.setState({[e.target.name]: e.target.value});}}
+                            inputProps = {{
+                              name: 'worker',
+                              id: 'workers-simple'
+                            }
+                            }>
+                            <MenuItem value="">
+                                <em>None</em>
+                            </MenuItem>
+                       {
+                            workersList.map((worker) => <MenuItem value={worker.id}>{worker.name}</MenuItem>)
+                        }
+                        </Select>
+                    </FormControl>
                 </CardContent>
                  <CardActions>
                  <Button size="small" color="primary" type="submit" disabled={values.id?false:(submitting || pristine)} onClick={()=>{if(!values.id){handleSubmit(values);form.reset();}}}>Save</Button>
                  <Button size="small" onClick={() => history.goBack()}>Cancel</Button>
-                 {/*<pre>{JSON.stringify(values,0,2)}</pre>*/}
+                 {<pre>{JSON.stringify(values,0,2)}</pre>}
                 </CardActions>
                  </form>
         </Card>

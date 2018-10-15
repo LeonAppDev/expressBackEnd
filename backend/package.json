@@ -1,0 +1,35 @@
+{
+  "name": "restful-express",
+  "version": "1.0.0",
+  "description": "a restful api built with express and sequelize",
+  "main": "app.js",
+  "scripts": {
+    "test": "node server.js",
+    "start": "cross-env NODE_ENV=development node server.js"
+  },
+  "keywords": [
+    "restful",
+    "api",
+    "express"
+  ],
+  "author": "Leon Ren",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mysql2": "^1.6.1",
+    "sequelize": "^4.39.0",
+    "swagger-ui-express": "^4.0.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "eslint": "^5.3.0",
+    "eslint-config": "^0.3.0",
+    "eslint-config-google": "^0.9.1",
+    "eslint-config-react-app": "^2.1.0",
+    "eslint-plugin-flowtype": "^2.50.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "pre-commit": "^1.2.2"
+  }
+}

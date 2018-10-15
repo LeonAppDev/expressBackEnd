@@ -5,7 +5,7 @@ import {
     GET_BOATS,
 	ASSIGN_WORKER_TOBOAT, 
 } from './constant';
-import { remoteRequest } from './api';
+import { remoteRequest } from '../../setup/api';
 import { API } from '../../setup/config';
 
 export const getBoats = createAction(GET_BOATS);
@@ -25,18 +25,15 @@ export const fetchBoats = function () {
     	url: `${API}boats`
 };
 
-	remoteRequest(request).then(res => {
+	return remoteRequest(request).then(res => {
 		
-		let action = getBoats();
-		action.payload = res.data;
-        dispatch(action);
+        dispatch(getBoats(res.data));
 
 	}).catch(err => {
 
 		throw new Error(err);
 	});
 
-	console.log(state.isLoading);
 }
 }
 

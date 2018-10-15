@@ -1,0 +1,100 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "A Node.js Application API",
+    "description": "A Node.js Application API",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "",
+  "tags": [
+    {
+      "name": "Boats",
+      "description": "API for boats in the system"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/boats": {
+      "get": {
+        "tags": [
+          "Boats"
+        ],
+        "summary": "Get all boats in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/boats"
+            }
+          }
+        }
+      }
+    },
+    "/boats/{boatId}": {
+      "parameters": [
+        {
+          "name": "boatId",
+          "in": "path",
+          "required": true,
+          "description": "ID of boat that we want to find",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Boats"
+        ],
+        "summary": "Get boat with given ID",
+        "responses": {
+          "200": {
+            "description": "Boat is found",
+            "schema": {
+              "$ref": "#/definitions/Boat"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Boat": {
+      "required": [
+        "email",
+        "_id"
+      ],
+      "properties": {
+        "_id": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "email": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        }
+      }
+    },
+    "Boats": {
+      "type": "array",
+      "$ref": "#/definitions/Boat"
+    }
+  }
+}
