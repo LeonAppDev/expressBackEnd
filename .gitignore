@@ -1,2 +1,6 @@
 node_modules
 frontend
+
+db.json
+dockyard.sql
+README.md
