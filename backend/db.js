@@ -3,7 +3,7 @@ const config = require('./config');
 
 const sequelize = new Sequelize(config.db, config.dbUser, config.dbPassword, {
 
-	host: 'localhost',
+	host: config.host,
 	dialect: 'mysql',
 
 	pool: {
