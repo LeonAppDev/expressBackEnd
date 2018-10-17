@@ -18,8 +18,8 @@ COPY . .
 
 EXPOSE 3000
 
-CMD ["npm","start"]
+#CMD ["npm","start"]
 # Use below command in staging env
-#CMD ["npm", "staging"]
+CMD ["npm","run","staging"]
 # Use below command in production env
 #CMD ["npm", "build"]
