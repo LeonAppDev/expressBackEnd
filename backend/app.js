@@ -14,5 +14,14 @@ app.use('/', (req, res) => {
     
     res.status(200).send('Welcome to express wordpress backend.');
 });
+app.use(function (err, req, res, next) {
+        
+    if(err.name === 'UnauthorizedError')
+    {
+        res.status(401).send('Invalid token provided.');
+    }
+
+    console.log(err.name);
+});
 
 module.exports = app;
