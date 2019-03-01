@@ -8,10 +8,12 @@ const config = require('./config');
 
 console.log(process.env.NODE_ENV);
 const app = express();
+
 app.use('/usermeta', jwt({secret: config.secret}), UserMetaController);
-app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-app.use(express.static('node_modules/swagger-ui-dist'));
-app.use('/nodeapp', express.static('node_modules/swagger-ui-dist'));
+app.use('/app-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/', function (req, res) {
+    res.send('Hello World!');
+});
 app.use(function (err, req, res, next) {
         
     if(err.name === 'UnauthorizedError')
