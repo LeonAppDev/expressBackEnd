@@ -1,6 +1,8 @@
 module.exports = (process.env.NODE_ENV == 'development'? {
-	host:'host.docker.internal',
-	//host: 'localhost',
+	//Use below when running on Docker
+	//host:'host.docker.internal',
+	//Use localhost when running by npm command
+	host: 'localhost',
 	db:'nzpt_entest',
 	dbUser:'root',
 	dbPassword:'Test11111',
