@@ -12,4 +12,4 @@ sleep 1
 
 sudo docker run --net=host -t -d node-web-app
 
-echo "End to execute  docker launch script"
+echo "End to execute docker launch script"
