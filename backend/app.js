@@ -8,12 +8,8 @@ const config = require('./config');
 
 console.log(process.env.NODE_ENV);
 const app = express();
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/usermeta', jwt({secret: config.secret}), UserMetaController);
-app.use('/', (req, res) => {
-    
-    res.status(200).send('Welcome to express wordpress backend.');
-});
+app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(function (err, req, res, next) {
         
     if(err.name === 'UnauthorizedError')
