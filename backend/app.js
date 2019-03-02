@@ -5,8 +5,9 @@ const UserMetaController = require('./controllers/wprh_usermetaController');
 const swaggerDocument = require('./swagger.json');
 const jwt = require('express-jwt');
 const config = require('./config');
+const logger = require('./logger');
 
-console.log(process.env.NODE_ENV);
+logger.info(process.env.NODE_ENV);
 const app = express();
 
 app.use('/usermeta', jwt({secret: config.secret}), UserMetaController);
@@ -18,7 +19,7 @@ app.use(function (err, req, res, next) {
         res.status(401).send('Invalid token provided.');
     }
 
-    console.log(err.name);
+    logger.error(err.name);
 });
 
 module.exports = app;

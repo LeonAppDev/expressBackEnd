@@ -23,7 +23,8 @@
     "mysql2": "^1.6.1",
     "sequelize": "^4.39.0",
     "swagger-ui-express": "^4.0.1",
-    "swagger-ui-dist": "3.19.3"
+    "swagger-ui-dist": "3.19.3",
+    "winston": "3.2.1"
   },
   "devDependencies": {
     "cross-env": "^5.2.0",
