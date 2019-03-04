@@ -1,14 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const sequelize = require('db');
+const db = require('db');
 
 const router = express.Router();
 router.use(bodyParser.urlencoded({extend: true}));
 router.use(bodyParser.json());
 
 
-const UserMeta = sequelize.import('../../models/wprh_usermeta');
+const UserMeta = db.import('../../models/wprh_usermeta');
 /*router.get('/', (req, res) => {
     
   UserMeta.findAll().then((usermeta) => {
