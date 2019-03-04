@@ -2,7 +2,8 @@
   "name": "restful-express",
   "version": "1.0.0",
   "description": "a restful api built with express and sequelize",
-  "main": "app.js",
+  "main": "server.js",
+  "eslintIgnore": ["/node_modules"],
   "scripts": {
     "test": "node server.js",
     "start": "cross-env NODE_ENV=development NODE_PATH=./src node server.js",
