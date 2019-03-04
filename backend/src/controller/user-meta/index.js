@@ -1,12 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const sequelize = require('../db');
+const sequelize = require('db');
 
 const router = express.Router();
 router.use(bodyParser.urlencoded({extend: true}));
 router.use(bodyParser.json());
 
+
+const UserMeta = sequelize.import('../../models/wprh_usermeta');
 /*router.get('/', (req, res) => {
     
   UserMeta.findAll().then((usermeta) => {
@@ -19,8 +21,7 @@ router.use(bodyParser.json());
 });
 */
 
-const UserMeta = sequelize.import('../models/wprh_usermeta');
-router.get('/userid/:user_id', (req, res) => {
+router.get('/:user_id', (req, res) => {
 
 	UserMeta.findAll({
 		where: {
@@ -34,7 +35,7 @@ router.get('/userid/:user_id', (req, res) => {
 	})
 });
 
-router.get('/metakey/:meta_key', (req, res) => {
+router.get('/:meta_key', (req, res) => {
 
 	UserMeta.findAll({
 		where: {

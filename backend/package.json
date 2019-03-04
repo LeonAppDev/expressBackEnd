@@ -5,9 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "node server.js",
-    "start": "cross-env NODE_ENV=development node server.js",
-    "staging": "cross-env NODE_ENV=staging node server.js",
-    "build": "cross-env NODE_ENV=production node server.js"
+    "start": "cross-env NODE_ENV=development NODE_PATH=./src node server.js",
+    "staging": "cross-env NODE_ENV=staging NODE_PATH=./src node server.js",
+    "build": "cross-env NODE_ENV=production NODE_PATH=./src node server.js"
   },
   "keywords": [
     "restful",

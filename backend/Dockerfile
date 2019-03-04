@@ -1,7 +1,7 @@
 FROM node:latest
 
 # Create app directory in image
-WORKDIR /usr/src/app
+WORKDIR /usr/app
 
 # Install app dependencies
 # A wildcard is used to ensure both package.json And package-lock.json are copied
