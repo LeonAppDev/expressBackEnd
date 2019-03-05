@@ -15,7 +15,10 @@ const db = new Sequelize(config.db, config.dbUser, config.dbPassword, {
         idle: 10000
 	},
 
-	operatorAliases: false
+	operatorAliases: false,
+	define: {
+        timestamps: false
+    }
 });
 
 db.authenticate().then(() => {

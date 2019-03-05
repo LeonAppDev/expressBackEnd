@@ -5,14 +5,14 @@ const jwt = require('express-jwt');
 const UserMetaController = require('controller/user-meta');
 const highTeaController = require('controller/high-tea');
 const swaggerDocument = require('./swagger.json');
-const config = require('./config');
 const logger = require('./logger');
+const config = require('./config');
 
 logger.info(process.env.NODE_ENV);
 const app = express();
 
 app.use('/usermeta', jwt({secret: config.secret}), UserMetaController);
-app.use('/hightea', highTeaController);
+app.use('/hightea', jwt({secret: config.secret}), highTeaController);
 app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(function (err, req, res, next) {
         
