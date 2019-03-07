@@ -16,7 +16,6 @@ module.exports = (() => {
 
 		case 'staging':
 			return {  
-				//host:'172.17.0.1',
 			    host:'localhost', 
 			    db:'nzpt_entest',
 				dbUser:'nzpt_en',
@@ -26,7 +25,8 @@ module.exports = (() => {
 
 		case 'production':
 			return {
-				host:'host.docker.internal',
+				//host:'host.docker.internal',
+				host:'localhost',
 			    db:'nzpt_en',
 				dbUser:'nzpt_en',
 				dbPassword:'NZPT@data',

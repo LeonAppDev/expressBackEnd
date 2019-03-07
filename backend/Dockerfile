@@ -8,9 +8,11 @@ WORKDIR /usr/app
 # where abailable (npm@5+)
 COPY package*.json ./
 
-RUN npm install
+# Use below command for development and staging env
+#RUN npm install
+
 # Use below command for production env
-#RUN npm install --only=production
+RUN npm install --only=production
 
 # Bundle app source
 COPY . .
@@ -19,7 +21,9 @@ COPY . .
 EXPOSE 3000
 
 #CMD ["npm","start"]
+
 # Use below command in staging env
-CMD ["npm","run","staging"]
+#CMD ["npm","run","staging"]
+
 # Use below command in production env
-# CMD ["npm", "build"]
+CMD ["npm", "build"]
