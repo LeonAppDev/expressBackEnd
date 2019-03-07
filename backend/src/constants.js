@@ -1,3 +1,3 @@
 module.exports = {
-	highTea: 'HighTea',
+	highTea: 'High Tea',
 };
