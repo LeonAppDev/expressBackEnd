@@ -26,4 +26,4 @@ EXPOSE 3000
 #CMD ["npm","run","staging"]
 
 # Use below command in production env
-CMD ["npm", "build"]
+CMD ["npm","run","build"]
