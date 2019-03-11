@@ -45,13 +45,15 @@ router.get('/', async (req, res) => {
 		    			[Op.or]: ['wc-processing', 'wc-completed']
 		    		}
 		    	}
-		    })
-		    
+				})
+				console.log(req);
+				res.header("Access-Control-Allow-Origin", "*");
+				res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 		    res.status(200).send(postData);
 		}
 		catch(error)
 		{
-			res.status(500).send('There was a problem finding the usermeta. '+err)
+			  res.status(500).send('There was a problem finding the usermeta. '+err)
 
 		}
 
