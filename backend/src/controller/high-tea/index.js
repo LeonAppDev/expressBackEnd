@@ -30,21 +30,37 @@ router.get('/', async (req, res) => {
     
     try{
 		    let postData = await posts.findAll({
-		    	include: [ postMeta,
+		    	include: [ 
+							{ model: postMeta,
+								where: {
+									meta_key: {
+										[Op.or]: ['_billing_email','_billing_phone','_shipping_first_name','_shipping_last_name','Start Date']
+									}
+								}
+							},
 		    	    { model: wcOrderItems,
 		    	      where: {
 		                order_item_name: {
-		                	[Op.like]: '%'+constants.highTea+'%'
+											[Op.like]: '%'+constants.highTea+'%',
+											[Op.notLike]: '%Voucher%'
 		                }, 
 		    	        },
-		    	      include: [wcOrderItemMeta]
-		    	     } ],
+		    	      include: [{
+								    model: wcOrderItemMeta,
+									  where:{
+										    meta_key: {
+												    [Op.or]:['_qty', 'ticket-type', 'Booking Time', 'Date', 'Start Date']
+												}  
+									}
+								}]
+		    	     }],
 		    	where: {
 		    		post_type: 'shop_order',
 		    		post_status: {
 		    			[Op.or]: ['wc-processing', 'wc-completed']
 		    		}
-		    	}
+					},
+					attributes:['post_status', 'ID', 'post_excerpt']
 				})
 				console.log(req);
 				res.header("Access-Control-Allow-Origin", "*");
