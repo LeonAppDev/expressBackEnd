@@ -49,7 +49,7 @@ router.get('/', async (req, res) => {
 								    model: wcOrderItemMeta,
 									  where:{
 										    meta_key: {
-												    [Op.or]:['_qty', 'ticket-type', 'Booking Time', 'Date', 'Start Date']
+												    [Op.or]:['_qty', 'ticket-type', 'Booking Time', 'Date', 'Start Date', 'sitalone', 'bythepool']
 												}  
 									}
 								}]
