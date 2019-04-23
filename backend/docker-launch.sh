@@ -10,6 +10,7 @@ sudo docker build -t node-web-app .
 
 sleep 1
 
-sudo docker run --net=host -t -d node-web-app
+#sudo docker run --net=host -t -d node-web-app
+sudo docker run --net=host -t node-web-app
 
 echo "End to execute docker launch script"
